@@ -6,10 +6,11 @@ X=N2*0.01
 y=X**2
 z=N1/y
 Z=(z)
-print(Z)
+print（Z)
 if Z<18.5:
     print("Too light")
-elif z<24:
+elif z
+Z<24:
     print("Moderate weight")
 else:
     print("Overweight")
