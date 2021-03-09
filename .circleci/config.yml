@@ -1,7 +1,7 @@
 
-N1=(input("body weight:"))
+N1=input("body weight:")
 
-N2=i(input("height:"))
+N2=input("height:")
 X=N2*0.01
 y=X**2
 z=N1/y
