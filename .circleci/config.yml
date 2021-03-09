@@ -1,0 +1,15 @@
+#身高
+N1=int(input("請輸入體重:"))
+#體重
+N2=int(input("請輸入身高:"))
+X=N2*0.01
+y=X**2
+z=N1/y
+Z=int(z)
+print(Z)
+if Z<18.5:
+    print("過輕")
+elif z<24:
+    print("適中")
+else:
+    print("過胖")
