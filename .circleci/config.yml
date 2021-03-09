@@ -5,7 +5,7 @@ N2=int(input("請輸入身高:"))
 X=N2*0.01
 y=X**2
 z=N1/y
-Z=int(z)
+Z=(z)
 print(Z)
 if Z<18.5:
     print("過輕")
