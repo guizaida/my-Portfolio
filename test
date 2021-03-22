@@ -8,7 +8,7 @@ for aaa in soup.select ("div.ps-title-lg"):
     print(aaa.string)
 for bbb in soup.select ("div.ps-price"):
     print(bbb.text)
-c=len(aaa.string)
+c=len(aaa)
 print(c)
 for a in range(0,c):
     titles=aaa[a].string
