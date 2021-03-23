@@ -1,0 +1,12 @@
+from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import pprint
+print=pprint.pprint
+driver=webdriver.Chrome()
+driver.get("https://tw.bid.yahoo.com/search/auction/product?p=14%E5%90%8B%E7%AD%86%E9%9B%BB")
+soup=BeautifulSoup(driver.page_source,"html.parser")
+aaa=driver.find_elements_by_tag_name("span")
+bbb=str(aaa)
+print(bbb)
+driver.quit()
