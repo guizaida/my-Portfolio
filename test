@@ -4,10 +4,9 @@ from selenium.webdriver.common.by import By
 driver = webdriver.Chrome()
 driver.get("https://notorious-2019.com/list.aspx?tid=12")
 soup = BeautifulSoup(driver.page_source)
-for aaa in soup.select ("div.ps-title-lg"):
-    print(aaa.string)
-for bbb in soup.select ("div.ps-price"):
-    print(bbb.text)
+aaa=soup.select ("div.ps-title-lg")
+bbb=soup.select ("div.ps-price")
+
 c=len(aaa)
 print(c)
 for a in range(0,c):
