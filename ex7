@@ -1,0 +1,9 @@
+a={}
+while True:
+    key=input("姓名:")
+    if key == "finish":
+        break
+    Value=input("電話:")
+    a[key]=Value
+x=input("查詢姓名:")
+print(a[x])
