@@ -1,0 +1,5 @@
+a=int(input("消費金額:"))
+if a<=2000:
+    print(a)
+else:
+    print(a*0.75)
