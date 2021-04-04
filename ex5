@@ -1,0 +1,5 @@
+a=[]#建立一個空列表
+for x in range(15):
+    x=(x*x+x)//2+1
+    a.append(x)#將變數X放入a列表中
+print(sum(a))
