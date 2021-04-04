@@ -1,0 +1,6 @@
+a=eval(input("國文成績:"))
+b=eval(input("英文成績:"))
+c=eval(input("數學成績:"))
+d=(a+b+c)/3
+print("總分=",a+b+c)
+print("平均成績=","{:.1f}".format(d))
