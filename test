@@ -1,0 +1,76 @@
+from selenium import webdriver
+import time
+import pyautogui
+import requests
+import json
+class b:
+
+    default_url = "https://www.8591.com.tw/user-login.html"
+    driver = webdriver.Chrome(r"C:\Users\User\123\chromedriver")
+    driver.get(default_url)
+    driver.find_element_by_xpath('//*[@id="accounts"]').send_keys('dog830021')
+    driver.find_element_by_xpath('//*[@id="pwd"]').send_keys('a7859469')
+    driver.find_element_by_xpath('//*[@id="send"]').click()
+    time.sleep(10)
+    driver.find_element_by_xpath('//*[@id="container"]/div[17]/a').click()
+    driver.find_element_by_xpath('//*[@id="header-topc"]/div[1]/a').click()
+    driver.find_element_by_xpath('//*[@id="strong_sell"]').click()
+    driver.find_element_by_xpath('//*[@id="sell"]/li[2]/a').click()
+    a=driver.find_element_by_xpath('//*[@id="pages"]').text
+    x=len(a)
+    if x == 3:
+        b=a[1]
+        driver.quit()
+        return b
+    elif x == 4:
+        b=a[1:3]
+        driver.quit()
+        return b
+    elif x == 5:
+        b=a[1:4]
+        driver.quit()
+        return b
+b=b()
+def changeprice(url):
+    for i in range(0,b):
+        driver.find_element_by_xpath('//*[@id="shopSubmit"]/div['+i+']/div[7]/a[5]').click()
+    time.sleep(10)  
+    pyautogui.click(825,522)
+    pyautogui.hotkey('ctrl', 'a')
+    pyautogui.press('num5')
+    pyautogui.press('num0')
+
+    url = "https://www.8591.com.tw/ajax.php"
+
+    headers = {
+        "Accept":	"application/json, text/javascript, /; q=0.01",
+        "Accept-Encoding":	"gzip, deflate, br",
+        "Accept-Language":	"zh-TW,zh;q=0.8,en-US;q=0.5,en;q=0.3",
+        "Connection":	"keep-alive",
+        "Content-Length":	"85",
+        "Content-Type":	"application/x-www-form-urlencoded; charset=UTF-8",
+        "Cookie":	'PHPSESSID=2fa68b33693ab446b01ee36c151a8b9562c3d31a; _gid=GA1.3.1728076946.1621090432; login_name=dog830021; isOnlineware=1; act2021_card_95discount=1; recent_Records=; history=; delHistory=1; is_support_webp=1; AgencyId=1733; __gads=ID=803cd666b988974a:T=1621090444:S=ALNI_MYdKTUkYIGnN85GQ7jdJeqOao4KAg; card-index=1; abc=QVS0quTTwGi2QtuDg8vz%2BQ46%2B2nNfvZYn4U; _ga_Y1GQYKZVWT=GS1.1.1621090432.1.1.1621090449.43; _ga=GA1.1.784280473.1621090432; deal-piao-toast=1',
+        "Host":	"www.8591.com.tw",
+        "Origin":	"https://www.8591.com.tw",
+        "Referer":	"https://www.8591.com.tw/publish-publishInfo.html?wareType=6&gameId=2560&serverId=2561",
+        "User-Agent":	"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:88.0) Gecko/20100101 Firefox/88.0",
+    "   X-Requested-With":	"XMLHttpRequest",
+                }
+
+    data = {
+        "module":"publish",
+        "action":"recsort",
+        "serverId":"2561",
+        "gameId":"2560",
+        "price":"5",
+        "sort_type":"0",
+        "pay_by":"2",
+    
+        }   
+
+
+    data = requests.post(url=url,headers=headers,data=data).text
+    DataNo = json.loads(data)
+    print(DataNo)
+    if msg == 1:
+        driver.quit()
